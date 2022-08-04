@@ -14,6 +14,7 @@ vector<string> split(const string &);
  */
 
 string misereNim(vector<int> s) {
-
+  string result {"Second"};
+  return result;
 }
 
