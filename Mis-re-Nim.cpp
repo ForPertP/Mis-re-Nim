@@ -13,9 +13,27 @@ vector<string> split(const string &);
  * The function accepts INTEGER_ARRAY s as parameter.
  */
 
-string misereNim(vector<int> s) {
-  string result {"Second"};
-  return result;
+// from https://www.hackerrank.com/challenges/misere-nim-1/forum%20 by jnvsumit
+string misereNim(vector<int> s)
+{
+    int len = s.size();
+    int xor_sum = 0;
+    int s_sum = 0;
+
+    for (int i = 0; i < s.size(); ++i)
+    {
+        xor_sum ^= s[i];
+        s_sum += s[i];
+    }
+
+    if (len % 2 != 0)
+    {
+        return len == s_sum || xor_sum == 0 ? "Second" : "First";
+    }
+    else
+    {
+        return len != s_sum && xor_sum == 0 ? "Second" : "First";
+    }
 }
 
 int main()
