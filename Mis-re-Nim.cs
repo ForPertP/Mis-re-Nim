@@ -37,8 +37,8 @@ class Result
 
         return (nimSum == 0) ? "Second" : "First";
     }
-
 }
+
 
 class Solution
 {
