@@ -1,3 +1,5 @@
+
+
 --
 -- Complete the 'misereNim' function below.
 --
@@ -9,3 +11,23 @@ function misereNim(s)
     -- Write your code here
 
 end
+
+local fptr = io.open(os.getenv("OUTPUT_PATH"), "w")
+
+local t = io.stdin:read("*n", "*l")
+
+for titr = 1, t do
+    local n = io.stdin:read("*n", "*l")
+
+    local s = {}
+
+    for token in string.gmatch(io.stdin:read("*l"):gsub("%s+$", ""), "[^%s]+") do
+        table.insert(s, tonumber(token))
+    end
+
+    local result = misereNim(s)
+
+    fptr:write(result, "\n")
+end
+
+fptr:close()
