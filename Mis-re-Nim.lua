@@ -8,9 +8,21 @@
 --
 
 function misereNim(s)
-    -- Write your code here
+    local nimSum = 0
+    local allOnes = true
 
+    for _, stone in ipairs(s) do
+        nimSum = nimSum ~ stone
+        allOnes = allOnes and (stone == 1)
+    end
+
+    if allOnes then
+        return (#s % 2 == 0) and "First" or "Second"
+    end
+
+    return (nimSum == 0) and "Second" or "First"
 end
+
 
 local fptr = io.open(os.getenv("OUTPUT_PATH"), "w")
 
